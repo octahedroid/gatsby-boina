@@ -1,0 +1,12 @@
+{
+  "name": "@weknow/gatsby-boina",
+  "description": "The WeKnow Gatsby Lab",
+  "author": "weKnow <yes@weknowinc.com>",
+  "private": true,
+  "devDependencies": {
+    "lerna": "^3.13.4"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}

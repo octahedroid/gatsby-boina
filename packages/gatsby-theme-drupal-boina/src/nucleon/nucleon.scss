@@ -1,0 +1,121 @@
+/* ==========================================================================
+   NUCLEUS
+   ========================================================================== */
+
+/**
+ * Inspired by itcss, by @csswizardry
+ *
+ */
+
+/**
+ * CONTENTS
+ *
+ * SETTINGS
+ * Core................Framework core and setup settings.
+ * Colors..............Colors that will be available to the project level.
+ * Global..............Project-wide variables and settings.
+ * Motion..............Project-wide motion and transition settings.
+ * Vendor..............Third party settings.
+ *
+ * TOOLS
+ * Font................Mixin which guarantees baseline-friendly line-heights.
+ * Core................Project-wide mixins, allow components access project-wide variables.
+ * Layout..............Mixins for layout composition.
+ * Vendor..............Mixin for third party libraries.
+ *
+ * GENERIC
+ * Box-sizing...........Better default `box-sizing`.
+ * Normalize.css........A level playing field using @necolas’ Normalize.css.
+ * Layout...............General layout normalize.
+ * Print................Reset-like styles taken from the HTML5 Boilerplate.
+ * Reset................A tiny reset to complement Normalize.css.
+ * Shared...............Sensibly and tersely share some global commonalities
+ *                      (particularly useful when managing vertical rhythm).
+ *
+ * ELEMENTS
+ * Page.................Set up our document’s default `font-size` and
+ *                      `line-height`.
+ * Headings.............Very minimal (i.e. only font-size information) for
+ *                      headings 1 through 6.
+ * Images...............Base image styles.
+ * Tables...............Simple table styles.
+ *
+ * OBJECTS
+ * Grid.................Generic layout module (default Foundation XY Grid).
+ * Media................Image- and text-like content side by side. The
+ *                      poster-child of OOCSS.
+ * Flag.................Table-layout-based advancement on the Media object.
+ * List-bare............Lists with no bullets or indents.
+ * Ratio................A container for maintaining aspect ratio of content.
+ * Form.................Provide a common styling for form elemnts.
+ * Table................Classes for manipulating `table`s.
+ * Dividers.............Divider object.
+ * Tabs.................Common styles for tab components.
+ *
+ * UTILITIES
+ * Background Colors....Helper classes that use the palette colors as background color.
+ * Borders..............Helper classes for adding borders to elements
+ * Fonts................Helper classes for font size consistency.
+ * Headings.............Reassigning our heading styles to helper classes.
+ * Spacings.............Nudge bits of the DOM around with these spacing
+ *                      classes.
+ * Text align...........Helper classes to align bits ot text
+ * Text color...........Helper classes that uses the color palette for text color.
+ * Visibility...........Helper classes to hide content
+ */
+
+// SETTINGS
+@import '~nucleon-ui/nucleon/settings/core';
+@import './settings/colors';
+@import './settings/theme';
+@import '~nucleon-ui/nucleon/settings/motion';
+@import '~nucleon-ui/nucleon/settings/vendor';
+
+// TOOLS
+@import '~nucleon-ui/nucleon/tools/font';
+@import '~nucleon-ui/nucleon/tools/core';
+@import '~nucleon-ui/nucleon/tools/layout';
+@import '~nucleon-ui/nucleon/tools/vendor';
+
+// GENERIC
+@import '~nucleon-ui/nucleon/generic/box-sizing';
+@import '~nucleon-ui/nucleon/generic/normalize';
+@import '~nucleon-ui/nucleon/generic/layout';
+@import '~nucleon-ui/nucleon/generic/reset';
+@import '~nucleon-ui/nucleon/generic/shared';
+@import '~nucleon-ui/nucleon/generic/print';
+
+// ELEMENTS
+@import '~nucleon-ui/nucleon/elements/headings';
+@import '~nucleon-ui/nucleon/elements/images';
+@import '~nucleon-ui/nucleon/elements/page';
+@import '~nucleon-ui/nucleon/elements/tables';
+
+// OBJECTS
+//
+// Uncomment and add to this section as necessary.
+@import '~nucleon-ui/nucleon/objects/grid';
+@import '~nucleon-ui/nucleon/objects/list-bare';
+@import '~nucleon-ui/nucleon/objects/dividers';
+@import '~nucleon-ui/nucleon/objects/table';
+@import '~nucleon-ui/nucleon/objects/flag';
+@import '~nucleon-ui/nucleon/objects/media';
+@import '~nucleon-ui/nucleon/objects/ratio';
+@import '~nucleon-ui/nucleon/objects/form';
+@import '~nucleon-ui/nucleon/objects/tabs';
+
+// COMPONENTS
+//
+// Build and include your project’s UI Compoments starting in /01-.
+
+// UTILITIES
+@import '~nucleon-ui/nucleon/utilities/headings';
+@import '~nucleon-ui/nucleon/utilities/spacings';
+@import '~nucleon-ui/nucleon/utilities/text-color';
+@import '~nucleon-ui/nucleon/utilities/bg-color';
+@import '~nucleon-ui/nucleon/utilities/text-align';
+@import '~nucleon-ui/nucleon/utilities/fonts';
+@import '~nucleon-ui/nucleon/utilities/visibility';
+@import '~nucleon-ui/nucleon/utilities/borders';
+// Syntax highlight
+@import '~prismjs/themes/prism-tomorrow.css';

@@ -1,0 +1,37 @@
+/* page styles */
+
+.c-page {
+  &__title{
+    padding-top: 10%;
+  }
+  h1, h2, h3 {
+    color: color(primary);
+  }
+
+  h3 {
+    font-weight: normal;
+  }
+
+  &__content {
+    color: color(excerpt);
+    font-weight: lighter;
+    a {
+      text-decoration: none;
+    }
+  }
+
+  &__related-post {
+    h3 {
+      color: color(excerpt);
+      font-size: 2rem;
+      font-weight: normal;
+    }
+  }
+  code{
+    border:none;
+    padding-bottom: 0;
+    padding-top: 0;
+    margin-bottom: inherit;
+    margin-top: inherit;
+  }
+}

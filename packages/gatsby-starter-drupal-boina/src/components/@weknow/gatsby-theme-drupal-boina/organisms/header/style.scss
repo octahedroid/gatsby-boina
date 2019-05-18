@@ -1,0 +1,62 @@
+.c-header{
+  position: fixed;
+  min-width: 100%;
+  z-index: 50;
+  height: $menu-height;
+  &__logo{
+    width: 200px;
+    fill: color('primary');
+  }
+  &__logo__link{
+    overflow: hidden;
+    display: block;
+    height: 60px;
+    span{
+      text-indent: -700px;
+      display: block;
+      margin-top: -25px;
+    }
+  }
+  &__title{
+    color: color('secondary');
+    font-family: $serif-font;
+    text-shadow: 1px 1px 3px rgba(color(black), $alpha: .3);
+  }
+  &__normal{
+
+  }
+  &__menu-link{
+    text-decoration: none;
+    font-size: 14px;
+    color: color(white);
+    display: block;
+    font-family: $sans-font;
+    line-height: 28px;
+    border-bottom: 2px solid transparent;
+    &:hover{
+      border-bottom: 2px solid color(white);
+    }
+    &--cta{
+      background-color: color('error');
+      color: color(black);
+      padding: 0 0.4rem;
+      &:hover{
+        border-bottom: 2px solid transparent;
+      }
+    }
+  }
+  &__menu--dark{
+    a{
+      color: color(primary);
+    }
+  }
+  &__scrolled{
+    background-color: color(white);
+    height: $menu-height;
+    width: 100%;
+  }
+  &__menu-handler{
+    fill: color(primary);
+    width:40px;
+  }
+}
