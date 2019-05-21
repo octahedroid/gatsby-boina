@@ -1,6 +1,6 @@
 {
   "name": "@weknow/gatsby-boina",
-  "description": "The WeKnow Gatsby Lab",
+  "description": "The WeKnow Gatsby Projects",
   "author": "weKnow <yes@weknowinc.com>",
   "private": true,
   "devDependencies": {
