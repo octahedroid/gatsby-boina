@@ -55,7 +55,7 @@ class TagsPage extends Component {
                 <div className="cell medium-6 small-12 large-6 xlarge-6 u-push-bottom" key={node.id}>
                   <ArticleTeaser
                     title={node.frontmatter.title}
-                    image={node..frontmatter.image.childImageSharp.fluid}
+                    image={node.frontmatter.image.childImageSharp.fluid}
                     resume={node.excerpt}
                     excerpt={node.excerpt}
                     link={node.frontmatter.path}
