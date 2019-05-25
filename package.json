@@ -1,11 +1,15 @@
 {
   "name": "@weknow/gatsby-boina",
-  "description": "The WeKnow Gatsby Projects",
+  "description": "The WeKnow Gatsby Boina Projects",
   "author": "weKnow <yes@weknowinc.com>",
   "private": true,
-  "devDependencies": {
-    "lerna": "^3.13.4"
+  "scripts": {
+    "drupal:starter:clean": "cd packages/gatsby-starter-drupal-boina && gatsby clean",
+    "drupal:starter:develop": "cd packages/gatsby-starter-drupal-boina && gatsby develop",
+    "drupal:starter:build": "cd packages/gatsby-starter-drupal-boina && gatsby build",
+    "drupal:starter:serve": "cd packages/gatsby-starter-drupal-boina && gatsby serve"
   },
+  "devDependencies": {},
   "workspaces": [
     "packages/*"
   ]
