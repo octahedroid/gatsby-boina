@@ -14,6 +14,7 @@ const Article = ({
           fluid={
             image
           }
+          alt={title}
         />
       </Link>
     </div>

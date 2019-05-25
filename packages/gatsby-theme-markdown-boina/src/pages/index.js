@@ -27,7 +27,7 @@ const IndexPage = () => (
       file(relativePath: { eq: "hero-cover.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 1440, maxHeight: 560, cropFocus: CENTER) {
-            src
+            ...GatsbyImageSharpFluid
           }
         }
       }
@@ -38,7 +38,6 @@ const IndexPage = () => (
       ) {
         edges {
           node {
-            html
             excerpt
             frontmatter {
               title
@@ -48,7 +47,7 @@ const IndexPage = () => (
               image {
                 childImageSharp {
                   fluid(maxWidth: 600, maxHeight: 400, cropFocus: CENTER) {
-                    src
+                    ...GatsbyImageSharpFluid
                   }
                 }
               }
