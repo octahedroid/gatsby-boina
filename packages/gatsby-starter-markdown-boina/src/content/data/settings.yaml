@@ -1,0 +1,12 @@
+name: 'Gatsby Starter Markdown Boina'
+description: 'A Gatsby Starter Blog using markdown files'
+keywords: 'gatsby, markdown, blog, technology, development'
+slogan: 'Slogan'
+footer: 'This is the footer.'
+disqus_shortname: 'disqus'
+twitter_handle: '@twitter'
+social_profiles:
+  - facebook: 'https://www.facebook.com'
+  - twitter: 'https://www.twitter.com'
+  - github: 'https://www.github.com'
+  - linkedin: 'https://www.linkedin.com'
