@@ -31,7 +31,13 @@ class Home extends Component {
     const loader = <div className="cell medium-12 align-center" key="loader">Loading ...</div>;
     return (
       <div className="c-home ">
-        <Hero title={field_name} tagline={field_slogan} image={imageHero} color="#288dc1" social={social_profiles} />
+        <Hero
+          title={field_name}
+          tagline={field_slogan}
+          image={imageHero}
+          color="purple"
+          social={social_profiles}
+        />
         <div className="grid-container u-push-top--inside--4x u-push-bottom--inside--4x">
           <InfiniteScroll className="grid-x grid-margin-x" key="inf-scroll"
             pageStart={0}
