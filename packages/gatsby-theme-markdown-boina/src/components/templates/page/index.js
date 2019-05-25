@@ -9,6 +9,8 @@ const dateFormat = require('date-fns/format');
 
 const Page = ({ data }) => {
   const { domain } = data.site.siteMetadata;
+  const info = data.markdownRemark;
+
   return (
     <Layout
       showFooterCta
@@ -17,7 +19,7 @@ const Page = ({ data }) => {
       postTitle={data.dataYaml.name}
       postDesc={data.dataYaml.description}
       postDate={dateFormat(new Date(), 'MMMM Do, YYYY')}
-      postImage={`${domain}${data.markdownRemark.image.childImageSharp.fluid.src}`}
+      postImage={`${domain}${info.frontmatter.image.childImageSharp.fluid.src}`}
     >
       <div className="c-page u-push-top--inside--9x u-push-bottom--inside--4x">
         <div className="grid-container align-center">
@@ -25,14 +27,14 @@ const Page = ({ data }) => {
             <div className="cell medium-6 small-11 large-6">
               <Img
                 fluid={
-                  data.markdownRemark.image.childImageSharp.fluid
+                  info.frontmatter.image.childImageSharp.fluid
                 }
                 alt={data.dataYaml.name}
               />
             </div>
             <div className="cell medium-6 small-11 large-6">
-              <h1 className="c-page__title">{data.markdownRemark.frontmatter.title}</h1>
-              <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
+              <h1 className="c-page__title">{info.frontmatter.title}</h1>
+              <div dangerouslySetInnerHTML={{ __html: info.html }} />
             </div>
           </div>
         </div>
@@ -62,8 +64,8 @@ export const query = graphql`
         date
         image {
           childImageSharp {
-            fluid {
-              src
+            fluid(maxWidth: 520 maxHeight: 520, cropFocus: CENTER) {
+              ...GatsbyImageSharpFluid
             }
           }
         }
