@@ -1,9 +1,6 @@
 # gatsby-boina
 
-The Gatsby packages
-for the Gatsby Boina projects.
-
-Dependencies
+> The npm packages for the WeKnow Gatsby Boina Projects
 
 ## Project dependencies
 
@@ -11,14 +8,32 @@ Dependencies
 - [yarn](https://yarnpkg.com/en/)
 - [gatsby-cli](https://www.gatsbyjs.org/tutorial/part-zero/#install-gatsby-cli)
 
-## Install
+## Install dependencies
 
 From project root execute:
 
 ```shell
-# install dependencies
-yarn install
 
-# link local packages together and install remaining package dependencies
-lerna bootstrap
+yarn install
+```
+
+## Current packages
+
+```
+packages
+├── gatsby-starter-drupal-boina
+└── gatsby-theme-drupal-boina
+```
+
+## Drupal starter commands
+
+```
+  - drupal:starter:build
+      cd packages/gatsby-starter-drupal-boina && gatsby build
+   - drupal:starter:clean
+      cd packages/gatsby-starter-drupal-boina && gatsby clean
+   - drupal:starter:develop
+      cd packages/gatsby-starter-drupal-boina && gatsby develop
+   - drupal:starter:serve
+      cd packages/gatsby-starter-drupal-boina && gatsby serve
 ```
