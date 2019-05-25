@@ -1,0 +1,60 @@
+.c-share{
+  &__button{
+    border-radius: 5px;
+    padding: .3rem;
+    cursor: pointer;
+    svg{
+      width: 20px;
+    }
+    span{
+      margin-left: .5rem;
+      font-size: 14px;
+      line-height: 18px;
+    }
+  }
+  .facebook{
+    border: 1px solid #3b5998;
+    color: #3b5998;
+  }
+  .twitter{
+    border: 1px solid  #1da1f2;
+    color: #1da1f2;
+  }
+  .linkedin{
+    border: 1px solid  #0077b5;
+    color: #0077b5;
+  }
+  .reddit{
+    border: 1px solid #ff4500;
+    color: #ff4500;
+  }
+  .whatsapp{
+    border: 1px solid #128C7E;
+    color: #128C7E;
+  }
+  &__icon{
+    position: relative;
+    &:after{ 
+      content: ''; 
+      width:45%;
+      height:0;
+      border-bottom: 2px solid color('border');
+      position: absolute;
+      top: 24px;
+      left:0;
+    } 
+    &:before{ 
+      content: ''; 
+      width:45%;
+      height:0;
+      border-bottom: 2px solid color('border');
+      position: absolute;
+      top: 24px;
+      right:0;
+    }
+    svg{
+      fill: color('border');
+      width: 60px;
+    }
+  }
+}

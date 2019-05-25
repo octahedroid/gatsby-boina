@@ -1,0 +1,11 @@
+
+/* Layout styles */
+
+.c-layout{
+  overflow: auto;
+  min-height: 100vh;
+  &__main{
+    background: color(white);
+  }
+
+}

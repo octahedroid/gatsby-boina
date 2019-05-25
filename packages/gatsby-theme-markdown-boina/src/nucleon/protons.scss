@@ -1,0 +1,52 @@
+/* ==========================================================================
+   PROTONS
+   ========================================================================== */
+
+/**
+ * Inspired by itcss, by @csswizardry
+ *
+ */
+
+/**
+ * This is used for React/Storybook compatibility
+ * this file is added to the components so they can use the mixins and variables 
+ * project-wide.
+ */
+
+/**
+ * CONTENTS
+ *
+ * SETTINGS
+ * Core................Framework core and setup settings.
+ * Colors..............Colors that will be available to the project level.
+ * Global..............Project-wide variables and settings.
+ * Motion..............Project-wide motion and transition settings.
+ * Vendor..............Third party settings.
+ *
+ * TOOLS
+ * Font................Mixin which guarantees baseline-friendly line-heights.
+ * Core................Project-wide mixins, allow components access project-wide variables.
+ * Layout..............Mixins for layout composition.
+ * Vendor..............Mixin for third party libraries.
+ *
+ */
+
+// SETTINGS
+@import '~nucleon-ui/nucleon/settings/core';
+@import './settings/colors';
+@import './settings/theme';
+@import '~nucleon-ui/nucleon/settings/motion';
+@import '~nucleon-ui/nucleon/settings/vendor';
+
+// TOOLS
+@import '~nucleon-ui/nucleon/tools/font';
+@import '~nucleon-ui/nucleon/tools/core';
+@import '~nucleon-ui/nucleon/tools/layout';
+@import '~nucleon-ui/nucleon/tools/vendor';
+
+
+$color-list: map-keys($colors);
+
+:export{
+  colors: sl-to-list($color-list, 'space');
+}
