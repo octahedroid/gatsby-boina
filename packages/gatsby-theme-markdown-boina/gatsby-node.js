@@ -89,7 +89,7 @@ exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions;
 
   const articleTemplate = path.resolve(__dirname, './src/components/templates/article/index.js');
-  // const pageTemplate = path.resolve(__dirname, './src/components/templates/page/index.js');
+  const pageTemplate = path.resolve(__dirname, './src/components/templates/page/index.js');
   const tagsTemplate = path.resolve(__dirname, './src/components/templates/tags/index.js');
 
   return graphql(
@@ -105,6 +105,10 @@ exports.createPages = ({ actions, graphql }) => {
               frontmatter {
                 title
                 path
+                content_type
+                tags {
+                  id
+                }
               }
               fields {
                 slug
@@ -123,9 +127,14 @@ exports.createPages = ({ actions, graphql }) => {
 
     // create pages
     posts.forEach(({ node }) => {
+      let template = pageTemplate;
+
+      if (node.frontmatter.content_type === 'article') {
+        template = articleTemplate;
+      }
       createPage({
         path: node.fields.slug,
-        component: articleTemplate,
+        component: template,
         context: {
           slug: node.fields.slug
         }
