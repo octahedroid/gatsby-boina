@@ -1,0 +1,35 @@
+{
+  "name": "gatsby-starter-markdown-boina",
+  "description": "A Gatsby Starter Blog using markdown files",
+  "version": "1.0.0",
+  "author": "weKnow <yes@weknowinc.com>",
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "serve": "gatsby serve --host 0.0.0.0 --port 9000",
+    "commitmsg": "commitlint -E GIT_PARAMS",
+    "format": "prettier --write '**/*.js'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -e $GIT_PARAMS"
+    }
+  },
+  "dependencies": {
+    "@weknow/gatsby-theme-markdown-boina": "^1.0.0",
+    "gatsby": "^2.3.29",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "prop-types": "^15.7.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/weknowinc/gatsby-boina"
+  }
+}

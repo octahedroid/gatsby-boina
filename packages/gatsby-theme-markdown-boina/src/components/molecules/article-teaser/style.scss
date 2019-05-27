@@ -1,0 +1,50 @@
+
+/* article */
+
+.c-article-teaser{
+  margin-bottom: 1.5rem;
+  &__image{
+    margin-bottom: 1rem;
+    a, img{ width: 100%}
+  }
+  &__title{
+    font-family: $serif-font;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 32px;
+    margin-bottom: .3rem;
+    text-transform: uppercase;
+    a{
+      color: color(black);
+      text-decoration: none;
+    }
+  }
+  &__date{
+    font-size: 14px;
+    line-height: 15px;
+    margin-bottom: .7rem;
+    color: color('excerpt');
+  }
+  &__resume{
+    font-family: $serif-font;
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 26px;
+    margin-bottom: .5rem;
+    text-transform: uppercase;
+  }
+  &__excerpt{
+    color: color('excerpt');
+    font-weight: 100;
+    font-size: 22px;
+    line-height: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  &__link{
+    color: color(primary);
+    text-transform: uppercase;
+    font-weight: 100;
+    font-size: 14px;
+    text-decoration: none;
+  }
+}

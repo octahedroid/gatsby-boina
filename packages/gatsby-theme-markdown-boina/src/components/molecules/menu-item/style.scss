@@ -1,0 +1,53 @@
+
+/**
+ *
+ * Menu Item
+ *
+ */
+
+.c-menu-item{
+  &__parent  {
+    position: relative;
+  }
+  &__parent> span:after{
+    @include css-triangle(5px, color('primary'), right);
+    position: absolute;
+    right: 0.6rem;
+  }
+  &__parent > span {
+    color: color('text');
+    background-color: color(white);
+    padding: .3rem .5rem;
+  }
+  &__parent--selected{
+    & > span {
+      font-weight: bold;
+      color: color('primary');
+    }
+    &> span:after{
+      @include css-triangle(5px, color('primary'), down);
+    }
+    .c-menu-item__submenu {
+      display: block;
+    }
+  }
+  &__link{
+    text-decoration: none;
+  }
+  &__link:hover{
+    color: color('primary');
+  }
+  &__link--active{
+    color: color('primary');
+    font-weight: bold;
+  }
+  &__submenu{
+    display: none;
+    & > li {
+      padding: .3rem .5rem;
+    }
+    & > li:last-child{
+      border-bottom: none;
+    }
+  }
+}

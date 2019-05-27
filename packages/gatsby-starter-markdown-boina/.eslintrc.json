@@ -1,0 +1,17 @@
+{
+  "extends": "airbnb",
+  "globals": {
+    "document": true,
+    "window": true,
+    "process": true,
+    "localStorage": true
+  },
+  "rules": {
+    "react/jsx-filename-extension": "off",
+    "no-underscore-dangle": 0,
+    "no-confusing-arrow": 0,
+    "react/forbid-prop-types":[1, { "forbid": ["any"], "checkContextTypes": true, "checkChildContextTypes": true }],
+    "max-len": ["warn", {"code":150, "tabWidth":2, "ignoreComments": true, "ignoreUrls": true }],
+    "comma-dangle": ["error", "never"]
+  }
+}

@@ -1,0 +1,47 @@
+/* page styles */
+
+.c-article {
+  h1, h2, h3 {
+    color: color(excerpt);
+  }
+
+  h3 {
+    font-weight: normal;
+  }
+
+  &__content {
+    color: color(excerpt);
+    font-weight: lighter;
+    a {
+      text-decoration: none;
+    }
+    a:hover, a:focus{
+      text-decoration: underline;
+    }
+  }
+  p, a, li{
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  &__related-post {
+    h3 {
+      color: color(excerpt);
+      font-size: 2rem;
+      font-weight: normal;
+    }
+  }
+  code{
+    border:none;
+    padding-bottom: 0;
+    padding-top: 0;
+    margin-bottom: inherit;
+    margin-top: inherit;
+  }
+  .twitter-tweet {
+    margin: 0 auto;
+  }
+  
+  .gist .gist-meta a{
+    font-size: 12px;
+  }
+}

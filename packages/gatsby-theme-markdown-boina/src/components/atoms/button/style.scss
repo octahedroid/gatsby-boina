@@ -1,0 +1,36 @@
+
+
+.c-button {
+  padding: .5rem 1rem;
+  border: none;
+  background-color: color('primary');
+  color: color(white);
+  overflow: hidden;
+  &--secondary{
+    background-color: color('secondary');
+    color: color(black);
+  }
+  &--info{
+    background-color: color('info');
+    color: color(black);
+  }
+  &--alert{
+    background-color: color('alert');
+    color: color(black);
+  }
+  &--error{
+    background-color: color('error');
+    color: color(white);
+  }
+  &--link{
+    color: color('links');
+    background: transparent;
+    border: none;
+    padding: 0;
+  }
+  span{
+    text-indent: -700px;
+    display: block;
+    margin-top: -25px;
+  }
+}
