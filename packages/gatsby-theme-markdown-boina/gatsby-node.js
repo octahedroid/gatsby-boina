@@ -116,6 +116,14 @@ exports.createPages = ({ actions, graphql }) => {
             }
           }
         }
+        allTagsYaml {
+          edges {
+            node {
+              id
+              url
+            }
+          }
+        }
       }
     `
   ).then((result) => {
@@ -124,6 +132,7 @@ exports.createPages = ({ actions, graphql }) => {
     }
 
     const posts = result.data.allMarkdownRemark.edges;
+    const tags = result.data.allTagsYaml.edges;
 
     // create pages
     posts.forEach(({ node }) => {
@@ -141,24 +150,13 @@ exports.createPages = ({ actions, graphql }) => {
       });
     });
 
-    // Tag pages:
-    let tags = [];
-    // Iterate through each post, putting all found tags into `tags`
-    _.each(posts, (edge) => {
-      if (_.get(edge, 'node.frontmatter.tags')) {
-        tags = tags.concat(edge.node.frontmatter.tags);
-      }
-    });
-    // Eliminate duplicate tags
-    tags = _.uniq(tags);
-
     // Make tag pages
-    tags.forEach(({ tag }) => {
+    tags.forEach(({ node }) => {
       createPage({
-        path: `/tags/${_.kebabCase(tag)}/`,
+        path: `/tags/${_.kebabCase(node.url)}/`,
         component: tagsTemplate,
         context: {
-          tag
+          tag: node.id
         }
       });
     });

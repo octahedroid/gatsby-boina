@@ -28,15 +28,15 @@ class TagsPage extends Component {
 
   render() {
     const articles = this.props.data.allMarkdownRemark.edges;
-    const tagTitle = this.props.data.taxonomyTermTags.name;
-    const tagPath = this.props.data.taxonomyTermTags.path.alias;
+    const tagTitle = this.props.data.tagsYaml.name;
+    const tagPath = this.props.data.tagsYaml.url;
     const { domain } = this.props.data.site.siteMetadata;
     const loader = <div className="cell medium-12 align-center" key="loader">Loading ...</div>;
     return (
       <Layout darkMenu
         postUrl={`${domain}/tags/${tagPath}`}
         postTitle={`Tag: ${tagTitle}`}
-        postDesc={this.props.data.dataYaml.description}
+        postDesc={this.props.data.tagsYaml.desc}
         postDate={dateFormat(new Date(), 'MMMM Do, YYYY')}
       >
         <div className="c-tags u-push-top--inside--9x u-push-bottom--inside--4x">
@@ -56,7 +56,6 @@ class TagsPage extends Component {
                   <ArticleTeaser
                     title={node.frontmatter.title}
                     image={node.frontmatter.image.childImageSharp.fluid}
-                    resume={node.excerpt}
                     excerpt={node.excerpt}
                     link={node.frontmatter.path}
                     date={node.frontmatter.date}
@@ -89,13 +88,15 @@ export const query = graphql`
         domain
       }
     }
-    dataYaml {
+    tagsYaml(
+      id: { eq: $tag }
+    ) {
       name
-      slogan
-      description
+      desc
+      url
     }
     allMarkdownRemark(
-      filter: { frontmatter: { tags: { in: [$tag] } } }
+      filter: { fields: { tags: { in: [$tag] } } }
       sort: { fields: [frontmatter___date], order: DESC }
       limit: 1000
     ) {
@@ -112,8 +113,8 @@ export const query = graphql`
             date
             image {
               childImageSharp {
-                fluid {
-                  src
+                fluid(maxWidth: 600, maxHeight: 400, cropFocus: CENTER) {
+                  ...GatsbyImageSharpFluid
                 }
               }
             }

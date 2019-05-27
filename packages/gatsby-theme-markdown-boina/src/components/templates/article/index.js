@@ -40,7 +40,7 @@ const ArticlePage = ({ data }) => {
                 : info.frontmatter.tags.map((tag, index) => (
                   <span key={tag.url}>
                     <Link key={tag.url} to={`/tags/${tag.url}`}>
-                      {`${tag.id}`}
+                      {`${tag.name}`}
                     </Link>
                     {(index + 1 !== info.frontmatter.tags.length) ? <span>,&nbsp;</span> : ''}
                   </span>
@@ -113,7 +113,7 @@ export const query = graphql`
           website
         }
         tags {
-          id
+          name
           url
         }
         image {

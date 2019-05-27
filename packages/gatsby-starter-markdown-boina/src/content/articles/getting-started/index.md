@@ -8,7 +8,6 @@ author: jmolivas
 image: '../../assets/gatsby-loves-drupal.jpg'
 overlay_color: 'orange-red-diagonal'
 tags:
-  - markdown
   - gatsby
 related_post:
   - 'gatsby-remark-twitter'
