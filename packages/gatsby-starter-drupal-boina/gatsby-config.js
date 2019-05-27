@@ -4,5 +4,5 @@ module.exports = {
       resolve: '@weknow/gatsby-theme-drupal-boina',
       options: { root: __dirname },
     },
-  ]
+  ],
 }

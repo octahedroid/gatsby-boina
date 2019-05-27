@@ -4,22 +4,20 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-require('babel-polyfill');
+require('babel-polyfill')
 
-const dateFormat = require('date-fns/format');
-const path = require('path');
-const _isEmpty = require('lodash/isEmpty');
-const dotenv = require('dotenv');
+const dateFormat = require('date-fns/format')
+const path = require('path')
+const _isEmpty = require('lodash/isEmpty')
+const dotenv = require('dotenv')
 
-const configPostCss = path.resolve(__dirname, './');
+const configPostCss = path.resolve(__dirname, './')
 
 dotenv.config({
-  path: `.env.${process.env.NODE_ENV}`
-});
+  path: `.env.${process.env.NODE_ENV}`,
+})
 
-exports.onCreateWebpackConfig = ({
-  actions, loaders
-}) => {
+exports.onCreateWebpackConfig = ({ actions, loaders }) => {
   actions.setWebpackConfig({
     module: {
       rules: [
@@ -29,65 +27,80 @@ exports.onCreateWebpackConfig = ({
             {
               loader: 'sass-resources-loader',
               options: {
-                resources: path.resolve(__dirname, './src/nucleon/protons.scss')
-              }
-            }
-          ]
+                resources: path.resolve(
+                  __dirname,
+                  './src/nucleon/protons.scss'
+                ),
+              },
+            },
+          ],
         },
         {
           test: /\.(woff|woff2|eot|ttf|svg)$/,
           include: configPostCss,
-          use: 'url-loader'
+          use: 'url-loader',
         },
         {
           test: /\.js$/,
-          include: path.dirname(require.resolve('@weknow/gatsby-theme-drupal-boina')),
-          use: [loaders.js()]
-        }
-      ]
-    }
-  });
-};
+          include: path.dirname(
+            require.resolve('@weknow/gatsby-theme-drupal-boina')
+          ),
+          use: [loaders.js()],
+        },
+      ],
+    },
+  })
+}
 
-exports.onCreateNode = ({
-  node, actions
-}) => {
-  if (node.internal.type === 'node__article' || node.internal.type === 'node__page') {
+exports.onCreateNode = ({ node, actions }) => {
+  if (
+    node.internal.type === 'node__article' ||
+    node.internal.type === 'node__page'
+  ) {
     // Fix missing fields on GraphQL schema
     for (const prop in node) {
       if (prop.match(/^field_.*/)) {
         if (node[prop] === null) {
-          node[prop] = '';
+          node[prop] = ''
         }
       }
     }
 
-    const { createNodeField } = actions;
+    const { createNodeField } = actions
     // Create a slug value as a field on the node.
     createNodeField({
       node,
       name: 'slug',
-      value: node.path.alias.substr(1)
-    });
+      value: node.path.alias.substr(1),
+    })
 
     // Create a formatted date field on the node.
     createNodeField({
       node,
       name: 'created_formatted',
-      value: dateFormat(new Date(node.created), 'MMMM Do, YYYY')
-    });
+      value: dateFormat(new Date(node.created), 'MMMM Do, YYYY'),
+    })
   }
-};
+}
 
 // Implement the Gatsby API “createPages”. This is called once the
 // data layer is bootstrapped to let plugins create pages from data.
 exports.createPages = ({ actions, graphql }) => {
-  const { createPage } = actions;
+  const { createPage } = actions
 
   return new Promise((resolve, reject) => {
-    const articleTemplate = path.resolve(__dirname, './src/components/templates/article/index.js');
-    const pageTemplate = path.resolve(__dirname, './src/components/templates/page/index.js');
-    const tagsTemplate = path.resolve(__dirname, './src/components/templates/tags/index.js');
+    const articleTemplate = path.resolve(
+      __dirname,
+      './src/components/templates/article/index.js'
+    )
+    const pageTemplate = path.resolve(
+      __dirname,
+      './src/components/templates/page/index.js'
+    )
+    const tagsTemplate = path.resolve(
+      __dirname,
+      './src/components/templates/tags/index.js'
+    )
     // page building queries
     graphql(
       `
@@ -100,8 +113,8 @@ exports.createPages = ({ actions, graphql }) => {
                 path {
                   alias
                 }
-                relationships{
-                  node__article{
+                relationships {
+                  node__article {
                     id
                   }
                 }
@@ -148,12 +161,11 @@ exports.createPages = ({ actions, graphql }) => {
               }
             }
           }
-      
         }
-        `
+      `
     ).then((result) => {
       if (result.errors) {
-        reject(result.errors);
+        reject(result.errors)
       }
       // pages for each node__article
       result.data.allNodeArticle.edges.forEach(({ node }) => {
@@ -161,10 +173,10 @@ exports.createPages = ({ actions, graphql }) => {
           path: node.path.alias,
           component: articleTemplate,
           context: {
-            slug: node.fields.slug
-          }
-        });
-      });
+            slug: node.fields.slug,
+          },
+        })
+      })
 
       // pages for each node__page
       result.data.allNodePage.edges.forEach(({ node }) => {
@@ -172,10 +184,10 @@ exports.createPages = ({ actions, graphql }) => {
           path: node.path.alias,
           component: pageTemplate,
           context: {
-            slug: node.fields.slug
-          }
-        });
-      });
+            slug: node.fields.slug,
+          },
+        })
+      })
 
       // pages for each tag-term
       result.data.allTaxonomyTermTags.edges.forEach(({ node }) => {
@@ -184,13 +196,13 @@ exports.createPages = ({ actions, graphql }) => {
             path: `/tags${node.path.alias}`,
             component: tagsTemplate,
             context: {
-              slug: node.path.alias
-            }
-          });
+              slug: node.path.alias,
+            },
+          })
         }
-      });
+      })
 
-      resolve();
-    });
-  });
-};
+      resolve()
+    })
+  })
+}

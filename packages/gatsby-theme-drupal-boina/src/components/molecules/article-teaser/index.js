@@ -1,20 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'gatsby';
-import Img from 'gatsby-image';
-import './style.scss';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Link } from 'gatsby'
+import Img from 'gatsby-image'
+import './style.scss'
 
-const Article = ({
-  title, image, resume, excerpt, link, date
-}) => (
+const Article = ({ title, image, resume, excerpt, link, date }) => (
   <div className="c-article-teaser">
     <div className="c-article-teaser__image">
       <Link to={link}>
-        <Img
-          fluid={
-            image
-          }
-        />
+        <Img fluid={image} />
       </Link>
     </div>
     <h2 className="c-article-teaser__title">
@@ -28,7 +22,7 @@ const Article = ({
       <strong> more</strong>
     </Link>
   </div>
-);
+)
 
 Article.propTypes = {
   title: PropTypes.string,
@@ -36,8 +30,8 @@ Article.propTypes = {
   resume: PropTypes.string,
   link: PropTypes.string,
   excerpt: PropTypes.string,
-  date: PropTypes.string
-};
+  date: PropTypes.string,
+}
 
 Article.defaultProps = {
   title: '',
@@ -45,6 +39,6 @@ Article.defaultProps = {
   resume: '',
   link: '',
   excerpt: '',
-  date: ''
-};
-export default Article;
+  date: '',
+}
+export default Article
