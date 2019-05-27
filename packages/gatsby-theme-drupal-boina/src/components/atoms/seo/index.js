@@ -1,13 +1,13 @@
-import React from 'react';
-import Helmet from 'react-helmet';
-import PropTypes from 'prop-types';
+import React from 'react'
+import Helmet from 'react-helmet'
+import PropTypes from 'prop-types'
 
 const config = {
   title: '',
   logo: '',
   url: '',
-  twitter: ''
-};
+  twitter: '',
+}
 
 const getSchemaOrgJSONLD = ({
   isBlogPost,
@@ -16,7 +16,7 @@ const getSchemaOrgJSONLD = ({
   image,
   description,
   datePublished,
-  siteUrl
+  siteUrl,
 }) => {
   const schemaOrgJSONLD = [
     {
@@ -24,68 +24,67 @@ const getSchemaOrgJSONLD = ({
       '@type': 'WebSite',
       url,
       name: title,
-      alternateName: config.title
-    }
-  ];
+      alternateName: config.title,
+    },
+  ]
 
   return isBlogPost
     ? [
-      ...schemaOrgJSONLD,
-      {
-        '@context': 'http://schema.org',
-        '@type': 'BreadcrumbList',
-        itemListElement: [
-          {
-            '@type': 'ListItem',
-            position: 1,
-            item: {
-              '@id': url,
-              name: title,
-              image
-            }
-          }
-        ]
-      },
-      {
-        '@context': 'http://schema.org',
-        '@type': 'BlogPosting',
-        url,
-        name: title,
-        alternateName: config.title,
-        headline: title,
-        image: {
-          '@type': 'ImageObject',
-          url: image
+        ...schemaOrgJSONLD,
+        {
+          '@context': 'http://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              item: {
+                '@id': url,
+                name: title,
+                image,
+              },
+            },
+          ],
         },
-        description,
-        author: {
-          '@type': 'Person',
-          name: 'Jesus Manuel Olivas'
+        {
+          '@context': 'http://schema.org',
+          '@type': 'BlogPosting',
+          url,
+          name: title,
+          alternateName: config.title,
+          headline: title,
+          image: {
+            '@type': 'ImageObject',
+            url: image,
+          },
+          description,
+          author: {
+            '@type': 'Person',
+            name: 'Jesus Manuel Olivas',
+          },
+          publisher: {
+            '@type': 'Organization',
+            url: siteUrl,
+            logo: config.logo,
+            name: 'Jesus Manuel Olivas',
+          },
+          mainEntityOfPage: {
+            '@type': 'WebSite',
+            '@id': config.url,
+          },
+          datePublished,
         },
-        publisher: {
-          '@type': 'Organization',
-          url: siteUrl,
-          logo: config.logo,
-          name: 'Jesus Manuel Olivas'
-        },
-        mainEntityOfPage: {
-          '@type': 'WebSite',
-          '@id': config.url
-        },
-        datePublished
-      }
-    ]
-    : schemaOrgJSONLD;
-};
+      ]
+    : schemaOrgJSONLD
+}
 
-const SEO = ({
-  postData, postImage, isBlogPost, keywords
-}) => {
-  const title = postData.title || config.title;
-  const description = postData.description || postData.excerpt || config.description;
-  const image = postImage || config.image;
-  const { url } = postData;
-  const datePublished = isBlogPost ? postData.datePublished : false;
+const SEO = ({ postData, postImage, isBlogPost, keywords }) => {
+  const title = postData.title || config.title
+  const description =
+    postData.description || postData.excerpt || config.description
+  const image = postImage || config.image
+  const { url } = postData
+  const datePublished = isBlogPost ? postData.datePublished : false
 
   const schemaOrgJSONLD = getSchemaOrgJSONLD({
     isBlogPost,
@@ -93,15 +92,15 @@ const SEO = ({
     title,
     image,
     description,
-    datePublished
-  });
+    datePublished,
+  })
 
   return (
     <Helmet
       title={title}
       meta={[
         { name: 'description', content: description },
-        { name: 'keywords', content: keywords }
+        { name: 'keywords', content: keywords },
       ]}
     >
       {/* General tags */}
@@ -128,25 +127,25 @@ const SEO = ({
       <meta name="twitter:image" content={image} />
       <html lang="en" />
     </Helmet>
-  );
-};
+  )
+}
 
 SEO.propTypes = {
   isBlogPost: PropTypes.bool,
   postData: PropTypes.shape({
     frontmatter: PropTypes.any,
-    excerpt: PropTypes.any
+    excerpt: PropTypes.any,
   }).isRequired,
   keywords: PropTypes.string,
   postImage: PropTypes.string,
-  siteUrl: PropTypes.string
-};
+  siteUrl: PropTypes.string,
+}
 
 SEO.defaultProps = {
   isBlogPost: false,
   postImage: null,
   keywords: '',
-  siteUrl: ''
-};
+  siteUrl: '',
+}
 
-export default SEO;
+export default SEO

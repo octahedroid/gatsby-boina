@@ -170,7 +170,6 @@ export const query = graphql`
           relationships {
             field_media_image {
               localFile {
-                publicURL
                 childImageSharp {
                   fluid(maxWidth: 1440, maxHeight: 560, cropFocus: CENTER) {
                     ...GatsbyImageSharpFluid

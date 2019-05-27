@@ -7,7 +7,11 @@
     "drupal:starter:clean": "cd packages/gatsby-starter-drupal-boina && gatsby clean",
     "drupal:starter:develop": "cd packages/gatsby-starter-drupal-boina && gatsby develop",
     "drupal:starter:build": "cd packages/gatsby-starter-drupal-boina && gatsby build",
-    "drupal:starter:serve": "cd packages/gatsby-starter-drupal-boina && gatsby serve"
+    "drupal:starter:serve": "cd packages/gatsby-starter-drupal-boina && gatsby serve",
+    "markdown:starter:clean": "cd packages/gatsby-starter-markdown-boina && gatsby clean",
+    "markdown:starter:develop": "cd packages/gatsby-starter-markdown-boina && gatsby develop",
+    "markdown:starter:build": "cd packages/gatsby-starter-markdown-boina && gatsby build",
+    "markdown:starter:serve": "cd packages/gatsby-starter-markdown-boina && gatsby serve"
   },
   "devDependencies": {},
   "workspaces": [
