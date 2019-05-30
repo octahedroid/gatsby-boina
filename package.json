@@ -13,7 +13,16 @@
     "markdown:starter:build": "cd packages/gatsby-starter-markdown-boina && gatsby build",
     "markdown:starter:serve": "cd packages/gatsby-starter-markdown-boina && gatsby serve"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@commitlint/cli": "^7.6.1",
+    "@commitlint/config-conventional": "^7.6.0",
+    "husky": "^2.3.0"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
   "workspaces": [
     "packages/*"
   ]

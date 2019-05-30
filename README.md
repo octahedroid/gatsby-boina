@@ -37,3 +37,11 @@ packages
    - drupal:starter:serve
       cd packages/gatsby-starter-drupal-boina && gatsby serve
 ```
+
+
+## Details about development dependencies
+
+### Convention about commits
+
+A combination of Husky and Commitlint is used to follow the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/#why-use-conventional-commits) rules about commits descriptions.
+
