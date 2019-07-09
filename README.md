@@ -20,9 +20,11 @@ yarn install
 ## Current packages
 
 ```
-packages
+packages/
 ├── gatsby-starter-drupal-boina
-└── gatsby-theme-drupal-boina
+├── gatsby-starter-markdown-boina
+├── gatsby-theme-drupal-boina
+└── gatsby-theme-markdown-boina
 ```
 
 ## Drupal starter commands
@@ -36,4 +38,17 @@ packages
       cd packages/gatsby-starter-drupal-boina && gatsby develop
    - drupal:starter:serve
       cd packages/gatsby-starter-drupal-boina && gatsby serve
+```
+
+## Markdown starter commands
+
+```
+   - markdown:starter:build
+      cd packages/gatsby-starter-markdown-boina && gatsby build
+   - markdown:starter:clean
+      cd packages/gatsby-starter-markdown-boina && gatsby clean
+   - markdown:starter:develop
+      cd packages/gatsby-starter-markdown-boina && gatsby develop
+   - markdown:starter:serve
+      cd packages/gatsby-starter-markdown-boina && gatsby serve
 ```
