@@ -16,6 +16,7 @@ module.exports = {
       options: {
         baseUrl: `${process.env.DRUPAL_HOST}`,
         apiBase: 'api',
+        preview: `${process.env.PREVIEW}`,
       },
     },
     {
