@@ -1,5 +1,5 @@
 module.exports = {
-  __experimentalThemes: [
+  plugins: [
     {
       resolve: '@weknow/gatsby-theme-drupal-boina',
       options: { root: __dirname },
