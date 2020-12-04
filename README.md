@@ -1,6 +1,6 @@
 # gatsby-boina
 
-> The npm packages for the WeKnow Gatsby Boina Projects
+> The npm packages for the Gatsby Boina Projects
 
 ## Project dependencies
 
